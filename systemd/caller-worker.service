@@ -1,0 +1,18 @@
+[Unit]
+Description=iii caller-worker (TypeScript)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/quickstart/workers/caller-worker
+Environment="III_URL=ws://10.0.1.10:49134"
+ExecStart=/usr/bin/npm run dev
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

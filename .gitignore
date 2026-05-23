@@ -1,0 +1,11 @@
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/terraform.tfvars
+workers/caller-worker/node_modules/
+workers/caller-worker/dist/
+workers/inference-worker/__pycache__/
+*.gguf
+*.bin
+.venv/

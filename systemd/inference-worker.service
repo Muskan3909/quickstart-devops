@@ -1,0 +1,20 @@
+[Unit]
+Description=iii inference-worker (Python / gemma-3-270m-it Q4)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/quickstart/workers/inference-worker
+Environment="III_URL=ws://10.0.1.10:49134"
+Environment="MODEL_PATH=/opt/models/gemma-3-270m-it-Q4_K_M.gguf"
+Environment="LLM_THREADS=2"
+ExecStart=/opt/venv/inference/bin/python inference_worker.py
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
